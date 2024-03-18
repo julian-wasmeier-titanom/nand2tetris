@@ -14,5 +14,18 @@ CHIP DMux4Way {
     OUT a, b, c, d;
 
     PARTS:
-    //// Replace this comment with your code.
+    //My attempt:
+    // DMux(in=in,sel=sel[0],a=aOrC,b=bOrD);
+    // DMux(in=in,sel=sel[1],a=aOrB,b=cOrD);
+    // And(a=aOrC,b=aOrB,out=a);
+    // And(a=bOrD,b=aOrB,out=b);
+    // And(a=aOrC,b=cOrD,out=c);
+    // And(a=bOrD,b=cOrD,out=d);
+
+    //Better:
+     DMux(in=in,sel=sel[1],a=aOrB,b=cOrD);
+     DMux(in=aOrB,sel=sel[0],a=a,b=b);
+     DMux(in=cOrD,sel=sel[0],a=c,b=d);
+    
+    
 }
